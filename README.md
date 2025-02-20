@@ -10,7 +10,15 @@ Este proyecto contiene la implementación y análisis de operaciones fundamental
 
 En este análisis se estudió el efecto de la convolución discreta entre una señal de entrada x(n) respuesta al impulso de un sistema h(n)  representadas por los dígitos de un código y una cédula, para comprender mejor este concepto cada integrante del grupo realizó el ejercicio con su respectiva información personal.
 
-# Esteban Rey 
+# Integrante 1 
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCI%C3%93N%201.jpeg?raw=true"/></p>
+
+# Integrante 2 
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCI%C3%93N%202.jpeg?raw=true"/></p>
+
+# Integrante 3 
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCI%C3%93N%203.jpeg?raw=true"/></p>
+
 
 ## Guía de usuario
 En el encabezado del código encontramos la inicialización de las librerias correspondientes para el correcto funcionamiento del código
