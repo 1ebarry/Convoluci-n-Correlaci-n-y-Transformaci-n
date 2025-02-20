@@ -12,9 +12,11 @@ En este análisis se estudió el efecto de la convolución discreta entre una se
 
 # Integrante 1 
 <p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCI%C3%93N%201.jpeg?raw=true"/></p>
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCI%C3%93N%201.1.jpeg?raw=true"/></p>
 
 # Integrante 2 
 <p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCI%C3%93N%202.jpeg?raw=true"/></p>
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCI%C3%93N%201.2.jpeg?raw=true"/></p>
 
 # Integrante 3 
 <p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCI%C3%93N%203.jpeg?raw=true"/></p>
