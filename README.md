@@ -6,8 +6,11 @@
 Este proyecto contiene la implementación y análisis de operaciones fundamentales en el procesamiento de señales, incluyendo convolución, correlación y transformadas en el dominio de la frecuencia, calculamos la convolución de una señal con un sistema tanto manualmente como en Python, así como la correlación entre señales periódicas Además, se incluye el análisis de señales descargadas desde PhysioNet para el estudio de sus características en el dominio del tiempo y frecuencia mediante la Transformada de Fourier.
 
 
-## Contexto 
+## Análisis Manual de la Convolución Discreta entre Señal y Sistema
 
+En este análisis se estudió el efecto de la convolución discreta entre una señal de entrada x(n) respuesta al impulso de un sistema h(n)  representadas por los dígitos de un código y una cédula, para comprender mejor este concepto cada integrante del grupo realizó el ejercicio con su respectiva información personal.
+
+# Esteban Rey 
 
 ## Guía de usuario
 En el encabezado del código encontramos la inicialización de las librerias correspondientes para el correcto funcionamiento del código
