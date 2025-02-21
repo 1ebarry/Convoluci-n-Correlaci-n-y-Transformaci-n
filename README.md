@@ -3,7 +3,7 @@
 <p align="center"><img src="https://cdn.prod.website-files.com/649475f4d573d5d9d1522680/649475f4d573d5d9d1522c35_analisis-de-fourier-y-wavelets-para-el-procesamiento-de-imagenes.jpg"/></p> 
 
 # Introducción
-Este proyecto contiene la implementación y análisis de operaciones fundamentales en el procesamiento de señales, incluyendo convolución, correlación y transformadas en el dominio de la frecuencia, calculamos la convolución de una señal con un sistema tanto manualmente como en Python, así como la correlación entre señales periódicas Además, se incluye el análisis de señales descargadas desde PhysioNet para el estudio de sus características en el dominio del tiempo y frecuencia mediante la Transformada de Fourier.
+Este proyecto contiene la implementación y análisis de operaciones fundamentales en el procesamiento de señales, incluyendo convolución, correlación y transformadas en el dominio de la frecuencia, calculamos la convolución de una señal con un sistema tanto manualmente como en Python, así como la correlación entre señales periódicas Además, se incluye el análisis de una señal descargada desde PhysioNet para el estudio de sus características en el dominio del tiempo y frecuencia mediante la Transformada de Fourier.
 
 
 # Análisis Manual de la Convolución Discreta entre Señal y Sistema
@@ -102,6 +102,7 @@ x2 = np.array([0, -0.233, -0.454, -0.649, -0.809, -0.924, -0.987, -0.996, -0.950
 r = correlacion_pearson(x1, x2)
 ```
 # Caracterización y Transformación de Señal ECG
+Se incluye una señal de ECG digitalizada continua, un conjunto de anotaciones de apnea identificadas como derivadas por expertos humanos sobre la base de la respiración registrada simultáneamente y las señales relacionadas y un conjunto de anotaciones de QRS generadas por máquina(simulación) en las que todos los latidos, independientemente del tipo, se han etiquetado como normales.
 Se caracterizó la señal en el dominio del tiempo mediante el cálculo de estadísticos descriptivos como la media, mediana y desviación estándar, permitiendo analizar su comportamiento y variabilidad. Además, se determinó la frecuencia de muestreo para evaluar la resolución temporal y verificar el cumplimiento del criterio de Nyquist. Finalmente, se representó gráficamente la señal para identificar patrones, tendencias y posibles interferencias.
 
 <p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/Se%C3%B1al%20ECG.png?raw=true"/></p>
