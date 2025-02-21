@@ -8,7 +8,7 @@ Este proyecto contiene la implementación y análisis de operaciones fundamental
 
 # Análisis Manual de la Convolución Discreta entre Señal y Sistema
 
-En este análisis se estudió el efecto de la convolución discreta entre una señal de entrada x(n) respuesta al impulso de un sistema h(n)  representadas por los dígitos de un código y una cédula, para comprender mejor este concepto cada integrante del grupo realizó el ejercicio con su respectiva información personal.
+En este análisis se estudió el efecto de la convolución discreta entre una señal de entrada x(n) respuesta al impulso de un sistema Y(n)  representadas por los dígitos de un código y una cédula, para comprender mejor este concepto cada integrante del grupo realizó el ejercicio con su respectiva información personal.
 
 ## Integrante 1   
 Señal Resultante de la convolución:
