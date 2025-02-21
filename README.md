@@ -10,20 +10,32 @@ Este proyecto contiene la implementación y análisis de operaciones fundamental
 
 En este análisis se estudió el efecto de la convolución discreta entre una señal de entrada x(n) respuesta al impulso de un sistema h(n)  representadas por los dígitos de un código y una cédula, para comprender mejor este concepto cada integrante del grupo realizó el ejercicio con su respectiva información personal.
 
-## Integrante 1 
-<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCI%C3%93N%201.jpeg?raw=true"/></p>
-<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCI%C3%93N%201.1.jpeg?raw=true"/></p>
+## Integrante 1   
+Señal Resultante de la convolución:
+![WhatsApp Image 2025-02-20 at 10 55 51 PM](https://github.com/user-attachments/assets/151b44b3-ab53-4e49-bede-d4f5bfeb97af)    
 
-## Integrante 2 
-<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCI%C3%93N%202.jpeg?raw=true"/></p>
-<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCI%C3%93N%201.2.jpeg?raw=true"/></p>
+Graficas X1 y X2:  
+![image](https://github.com/user-attachments/assets/1c7086a8-b563-419b-b773-28ecb64363c3)  
 
-## Integrante 3 
-<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCION%20TRES.jpeg?raw=true"/></p>
+## Integrante 2     
+Señal Resultante de la convolución:
+![WhatsApp Image 2025-02-20 at 11 16 45 PM](https://github.com/user-attachments/assets/3f18a868-310f-4da5-8b0f-968e86c58b83)   
+
+Graficas X1 y X2:  
+![WhatsApp Image 2025-02-20 at 11 16 23 PM](https://github.com/user-attachments/assets/b9a8cc44-8e73-4533-87c5-5b38853f4372)  
+
+## Integrante 3   
+Señal Resultante de la convolución:  
+![WhatsApp Image 2025-02-20 at 11 20 19 PM](https://github.com/user-attachments/assets/758ff5d0-6400-4df5-ac68-175f3afd73e6)  
+
+Graficas X1 y X2:  
+![WhatsApp Image 2025-02-20 at 11 21 30 PM](https://github.com/user-attachments/assets/461069d2-ad11-4cde-ab20-f19173e0b265)  
+
 
 # Correlación  Manual entre Señales Senoidal y Cosenoidal
 Se calcula el coeficiente de correlación (fuerza de relación entre dos señales) reemplazando valores para n desde 0 hasta 8 en las señales x1(n) y x2(n) para determinar sus variaciones y similitudes al pasar un determinado tiempo.
-<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CORRELACI%C3%93N.jpeg?raw=true"/></p>
+![WhatsApp Image 2025-02-20 at 11 22 43 PM](https://github.com/user-attachments/assets/ec9eb3f0-d6be-42a5-b4bd-cc88bdbfc3e0)  
+
 
 # Guía de usuario 
 En el encabezado del código encontramos la inicialización de las librerias correspondientes para el correcto funcionamiento del código
