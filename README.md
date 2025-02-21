@@ -2,27 +2,30 @@
 <p align="center"> </p>
 <p align="center"><img src="https://cdn.prod.website-files.com/649475f4d573d5d9d1522680/649475f4d573d5d9d1522c35_analisis-de-fourier-y-wavelets-para-el-procesamiento-de-imagenes.jpg"/></p> 
 
-## Introducción
+# Introducción
 Este proyecto contiene la implementación y análisis de operaciones fundamentales en el procesamiento de señales, incluyendo convolución, correlación y transformadas en el dominio de la frecuencia, calculamos la convolución de una señal con un sistema tanto manualmente como en Python, así como la correlación entre señales periódicas Además, se incluye el análisis de señales descargadas desde PhysioNet para el estudio de sus características en el dominio del tiempo y frecuencia mediante la Transformada de Fourier.
 
 
-## Análisis Manual de la Convolución Discreta entre Señal y Sistema
+# Análisis Manual de la Convolución Discreta entre Señal y Sistema
 
 En este análisis se estudió el efecto de la convolución discreta entre una señal de entrada x(n) respuesta al impulso de un sistema h(n)  representadas por los dígitos de un código y una cédula, para comprender mejor este concepto cada integrante del grupo realizó el ejercicio con su respectiva información personal.
 
-# Integrante 1 
+## Integrante 1 
 <p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCI%C3%93N%201.jpeg?raw=true"/></p>
 <p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCI%C3%93N%201.1.jpeg?raw=true"/></p>
 
-# Integrante 2 
+## Integrante 2 
 <p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCI%C3%93N%202.jpeg?raw=true"/></p>
 <p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCI%C3%93N%201.2.jpeg?raw=true"/></p>
 
-# Integrante 3 
-<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCI%C3%93N%203.jpeg?raw=true"/></p>
+## Integrante 3 
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CONVOLUCION%20TRES.jpeg?raw=true"/></p>
 
+# Correlación  Manual entre Señales Senoidal y Cosenoidal
+Se calcula el coeficiente de correlación (fuerza de relación entre dos señales) reemplazando valores para n desde 0 hasta 8 en las señales x1(n) y x2(n) para determinar sus variaciones y similitudes al pasar un determinado tiempo.
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/CORRELACI%C3%93N.jpeg?raw=true"/></p>
 
-## Guía de usuario
+# Guía de usuario 
 En el encabezado del código encontramos la inicialización de las librerias correspondientes para el correcto funcionamiento del código
  ```pyton 
 import os  # ubicacion archivo
@@ -39,192 +42,181 @@ Es importante modificar la ruta de ubicación, se aconceja tener los archivos ".
 os.chdir(r'C:\Users\Esteban\Pictures\Convolucion,Correlacion y,Transformaci-n')
 datos, info = wfdb.rdsamp('a01', sampfrom=50, sampto=1000)
 datos = np.array(datos).flatten()
+```
+## Análisis de la Convolución Discreta entre Señal y Sistema
 
-```
-Para que nuestra señal sea gráficada correctamente es necesario usar los comandos " np.array"  para que los datos se puedan expresar gráficamente y comandos "plt. " para crear cuadricula, nombrar ejes y agregar un titulo para el gráfico.
-```pyton
-datos = np.array(datos).flatten()  # Convertir a 1D si es necesario
-plt.figure(figsize=(10, 5))
-plt.plot(datos, label="Señal EMG", color='c')
-plt.xlabel("Tiempo (ms)")
-plt.ylabel("Amplitud (mV)")  
-plt.title("Señal EMG Neuropatía")
-plt.legend()
-plt.grid()
-```
-Continuamos con los estadisticos descriptivos correspondientes para la media, desviación estandar y coeficiente de variación, los cuales consisten en la operación básica de estas medidas
-```pyton
-#Media
-sumatoriadatos = 0
-for i in datos:
-    sumatoriadatos += i
-media=sumatoriadatos/info['sig_len']
-print(f"Media: {media}")
-```
-<p align="center"><img src="https://www.masscience.com/wp-content/uploads/2019/12/formula-para-calcular-la-media.png"/></p>
+Posteriormente, se implementó el ejercicio usando  la operación predefinida  de convolución discreta en Python  "np.convolve"   por lo cuál  se pudo analizar cómo la señal de entrada fue modificada por la respuesta al impulso y por ultimo obteniendo la representación gráfica y secuencial para relacionarlo con los resultados manuales.
 
 ```pyton
-#DESVIACION ESTANDAR 
-resta=datos-media
-#print(resta)
-resta2=resta**2
-#print(resta2)
-sumatoriaresta=0
-for i in resta2:
-    sumatoriaresta += i    
-#print(sumatoriaresta)
-S=np.sqrt(sumatoriaresta/(info['sig_len']-1)) 
-print(f"Desviacion estandar: {S}")
-```
-<p align="center"><img src="https://economipedia.com/wp-content/uploads/Formula-Desviacion-Tipica.jpg"/></p>
+x = np.array([5,6,0,0,4,9,6])  # Señal 1 código inicializado
+h = np.array([1,0,2,1,3,9,2,6,7,8])  # Señal 2 cédula inicializada
 
-```pyton
-#COEFICIENTE DE VARIACIÓN
-CV =(S/media)*100
-print(f"Coeficiente de Variación: {CV}%")
+y = np.convolve(x, h, mode='full')
+print("Resultado de la convolución Integrante 1/2/3:", y)
 ```
-<p align="center"><img src="https://economipedia.com/wp-content/uploads/coeficiente-de-variacion-formula.png"/></p>
+Ecuación de la convolución discreta
+<p align="center"><img src="https://dademuchconnection.wordpress.com/wp-content/uploads/2020/09/null-70.png?w=300"/></p>
 
-Continuamos con los estadisticos realizados con funciones predefinidas correspondientes para la media, desviación estandar y coeficiente de variación, donde usamos la biblioteca numpy la cual nos proporciona calculos eficientes para ciertas operaciones matemáticas
+
+
+##  Correlación de Pearson entre Señales Senoidal y Cosenoidal 
+Se realiza el coeficiente de  correlación entre dos señales periódicas una función coseno y una función seno, ambas con una frecuencia de 100 Hz y muestreadas con un período de Ts= 1.25ms, es importante tener en cuenta que si se obtiene un valor de 1 indica una correlación positiva perfecta, -1 indica una correlación negativa perfecta y 0 sugiere que no hay relación lineal. 
+Las señales dadas están definidas como:
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/Se%C3%B1ales%20senoidal%20%20y%20cosenoidal.png?raw=true"/></p>
+
+donde la correlación entre x1(n) y x2(n) se define como: 
+<p align="center"><img src="https://www.hubspot.com/hs-fs/hubfs/F%C3%B3rmula%20de%20la%20correlaci%C3%B3n.png?width=400&height=141&name=F%C3%B3rmula%20de%20la%20correlaci%C3%B3n.png"/></p>
+
+Representamos la formula de correlación de Pearson respecto a nuestras señales como: 
 ```pyton
-#MEDIA
-mean=np.mean(datos)
+def correlacion_pearson(x1, x2):  "Convierte los datos en arreglos Numpy para facilitar a python las opreaciones matemáticas"
+    x1 = np.array(x1)
+    x2 = np.array(x2)     
+    mean_x1 = np.mean(x1)     "Promedio de los arreglos"
+    mean_x2 = np.mean(x2)
+
+ "covarizanza con los promedios para representar el numerador en la formula"
+    numerador = np.sum((x1 - mean_x1) * (x2 - mean_x2))  
+
+"multiplicación desviacion estandar correspondiente a las dos señales como denominador"
+    denominador = np.sqrt(np.sum((x1 - mean_x1)**2)) * np.sqrt(np.sum((x2 - mean_x2)**2))  
+
+    "evitar desviación por 0"
+    return 0 if denominador == 0 else numerador / denominador
+
+"Definir las señales"
+x1 = np.array([1, 0.972, 0.890, 0.760, 0.587, 0.382, 0.155, -0.079, -0.309])
+x2 = np.array([0, -0.233, -0.454, -0.649, -0.809, -0.924, -0.987, -0.996, -0.950])
+r = correlacion_pearson(x1, x2)
+```
+# Caracterización y Transformación de Señal ECG
+Se caracterizó la señal en el dominio del tiempo mediante el cálculo de estadísticos descriptivos como la media, mediana y desviación estándar, permitiendo analizar su comportamiento y variabilidad. Además, se determinó la frecuencia de muestreo para evaluar la resolución temporal y verificar el cumplimiento del criterio de Nyquist. Finalmente, se representó gráficamente la señal para identificar patrones, tendencias y posibles interferencias.
+
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/Se%C3%B1al%20ECG.png?raw=true"/></p>
+
+Los estadisticos realizados con funciones predefinidas correspondientes para la media, mediana, Coeficiente de variación  y desviación estandar , donde usamos la biblioteca "numpy" la cual nos proporciona calculos eficientes para ciertas operaciones matemáticas y "info['fs']" para obtener la frecuencia de muestreo guardada en los datos de la señal
+```pyton
+mean = np.mean(datos)
 print(f"Media Numpy: {mean}")
-```
-
-```pyton
-#DESVIACION ESTANDAR
-desviacion_muestral = np.std(datos, ddof=1)  # ddof=1 para muestra
+desviacion_muestral = np.std(datos, ddof=1)
 print(f"Desviación estándar Numpy: {desviacion_muestral:.4f}")
-```
-
-```pyton
-#COEFICIENTE DE VARIACION
 cv = (desviacion_muestral / mean) * 100
 print(f"Coeficiente de Variación Numpy: {cv:.2f}%")
+fs = info['fs']
+N = len(datos)
+t = np.arange(N) / fs
 ```
-Para el histograma se uso la herramienta graficadora plt. donde los datos de la señal son guardados por intervalos y renombrados "bins" en este caso se tienen 50 intervalos. Por otra parte se importa la biblioteca "gaussian_kde" para realizar una estimación del comportamiento de los intervalos bins y graficar una tendencía los mas cercana posible(Función de probabilidad), como se muestra en la imagen
-```pyton
-# Histograma
-plt.figure()
-plt.hist(datos, bins=50, edgecolor='black', alpha=1.0, color='orange', density=True)  # Normalizado para densidad
-plt.grid()
+## Transformada Rápida de Fourier
+Se aplicó la Transformada de Fourier (FFT) a la señal para analizar su contenido en el dominio de la frecuencia. Posteriormente, se graficó la transformada, mostrando la distribución de las frecuencias presentes en la señal. Además, se representó la densidad espectral de potencia, lo que permitió visualizar la contribución energética de cada frecuencia y facilitar la interpretación del comportamiento espectral de la señal.
+<p align="center"><img src="https://cdn.svantek.com/wp-content/uploads/2023/08/FFT-Fast-Fourier-Transform-Formula-300x98.jpg"/></p>
 
-# Estimación de la densidad mediante gaussian_kde
-kde = gaussian_kde(datos.flatten())
-# Ajustar los valores de KDE para que alcancen hasta 2.5 en el eje y
-scaling_factor = 2.5 / max(kde(datos.flatten()))  # scaling_factor para calcular el comportamiento de los datos  
-x_vals = np.linspace(datos.min(), datos.max(), 1000) # genera 1000 puntos entre los espacios de los datos para lograr graficar Kde
-plt.plot(x_vals, kde(x_vals) * scaling_factor, color='blue', lw=2, label='Densidad KDE (escalada)') #Grafica y ajusta la curva Kde
-```
-<p align="center"><img src="https://github.com/1ebarry/Analisis-estadistico-se-al-EMG/blob/main/Figure%202025-02-06%20212910.png?raw=true"/></p>
-
-Por ultimo tenemos el codigo respectivo para la contaminación de nuestra señal EMG, se realiza con tres tipos de ruido y por tipo dos pruebas, las cuales consisten en primer lugar el SNR con ruido unicamente y en segundo lugar el SNR con ruido y amplitúd aplicada
-
-## Prueba 1
-# Ruido Gaussiano
-```pyton
-# --- GENERAR RUIDO GAUSSIANO ---
-ruido_std = np.std(datos) * 0.3  # 30% de la desviación estándar de la señal
-ruido = np.random.normal(0, ruido_std, size=len(datos))  # Ruido gaussiano
-
-# --- SEÑAL CONTAMINADA ---
-señal_ruidosa = datos + ruido
-```
-# Ruido de Red 
+Primero, se utiliza "fft(datos)", que convierte la señal del dominio del tiempo al dominio de la frecuencia para analizar su contenido espectral, "np.fft.fftfreq(N, d=1/fs)" calcula el las frecuencias de la FFT, donde N es la cantidad de muestras y fs la frecuencia de muestreo hallada anteriormente, solo se toman las frecuencias positivas con "freqs[:N//2]" pues la función detecta que la FFT es simétrica , se extrae la mágnitud con la función "(fft_values[:N//2])" y se grafica la señal.
 
 ```pyton
-frecuencia_red = 60  # Frecuencia del ruido (60 Hz)
-amplitud_ruido = 0.8  # Amplitud del ruido de red
-ruido_red = amplitud_ruido * np.sin(2 * np.pi * frecuencia_red * t)
+fft_values = fft(datos)  "fft funcion que evaluacion fourier en funcion del tiempo" 
+freqs = np.fft.fftfreq(N, d=1/fs) "calcula la frecuencia dependiendo de n  y periodo de muestreo"
 
-# Contaminación con ruido de red
-datos_contaminados_red = datos + ruido_red
-```
-# Ruido de Pulso
-```pyton
-# Parámetros del ruido de pulso
-amplitud_ruido_min = -2.5  # Valor mínimo del impulso
-amplitud_ruido_max = 2.5   # Valor máximo del impulso
-ruido_pulso = np.zeros_like(datos)
-num_impulsos = int(0.05 * len(datos))  # 5% de la longitud total de la señal
-indices_impulso = np.random.choice(len(datos), size=num_impulsos, replace=False)
-ruido_pulso[indices_impulso] = np.random.uniform(amplitud_ruido_min, amplitud_ruido_max, size=num_impulsos)
-
-# Contaminación con ruido de pulso
-datos_contaminados_pulso = datos + ruido_pulso
-```
-# Cálculo SNR
-```pyton
-# --- CÁLCULO DEL SNR ---
-def calcular_snr(señal, ruido):
-    potencia_señal = np.mean(señal_ruidosa**2)  # Potencia de la señal
-    potencia_ruido = np.mean(ruido**2)  # Potencia del ruido
-    snr = 10 * np.log10(potencia_señal / potencia_ruido)  # SNR en dB
-```
-<p align="center"><img src="https://image.slidesharecdn.com/sesion05-estadisticaensenales-130528192513-phpapp02/85/Sesion-05-Estadistica-en-senales-19-320.jpg"/></p>
-
-## Prueba 2
-Los datos de la señal EMG son multiplicados por el factor de amplificación = 2 
-# Ruido Gaussiano amplitud aplicada
-```pyton
-plt.subplot(2, 1, 2)
-plt.plot(señal_ruidosa, color='red', label="Señal con Ruido Gaussiano")
-plt.title("Señal EMG Contaminada con Ruido Gaussiano Amplificada")
-plt.xlabel("Tiempo (ms)")
-plt.ylabel("Amplitud (mV)")
+plt.figure(figsize=(10, 4))
+plt.plot(freqs[:N//2], np.abs(fft_values[:N//2]), label="Transformada de Fourier", color='m')
+plt.xlabel("Frecuencia (Hz)")
+plt.ylabel("|Frecuencia| (Hz)")
+plt.title("Transformada de Fourier de la Señal EMG")
 plt.legend()
 plt.grid()
+plt.show()
 ```
-# Ruido de red amplitud aplicada
+### Explicación Magnitud
+La siguiente función predefinida "fft_values" representa muchos arreglos de números complejos que se hallan a partir de la fft, estos se ven representados por magnitudes y fases, en este caso nos interesa la magnitud para saber la energia que tiene cada frecuencia y determinar los estadisticos, "np.abs" nos ayuda a determinar cuánta energía tiene cada frecuencia sin considerar la fase.
+
 ```pyton
-plt.subplot(3, 1, 2)
-plt.plot(t * 1000, datos_con_red, label="Señal con Ruido de Red (60 Hz)", color='orange')
-plt.title("Señal EMG Contaminada con Ruido de Red Amplificada")
-plt.xlabel("Tiempo (ms)")
-plt.ylabel("Amplitud (mV)")
-plt.legend()
-plt.grid()
+magnitudes = np.abs(fft_values)
 ```
-# Ruido de pulso amplitud aplicada
+<p align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBsnC1OGC_tbo92E-GsxqtgYOGlgJiyfhAQcah5xwnZJee_LyQRdTzttNO7-VUfPGYHw&usqp=CAU"/></p>
+
+# Densidad Espectral
+Ya con el conocimiento previo de como surgen las magnitudes se puede hallar la densidad espectral que para este caso es de potencia, se identifica  las frecuencias donde se concentra la mayor cantidad de energía, y se grafica la PSD, en el eje horizontal se encuentra la frecuencia en Hertz (Hz), mientras que el eje vertical muestra la densidad de potencia en unidades de 𝑚𝑉2/𝐻𝑧
+
 ```pyton
-plt.subplot(3, 1, 3)
-plt.plot(t * 1000, datos_con_pulso, label="Señal con Ruido de Pulso", color='purple')
-plt.title("Señal EMG Contaminada con Ruido de Pulso Amplificada")
-plt.xlabel("Tiempo (ms)")
-plt.ylabel("Amplitud (mV)")
-plt.legend()
-plt.grid()
+psd = np.abs(fft_values) ** 2 / N  "Calcula la magnitud de fft y lo eleva al cuadrado para obtener la magnitud de la potencia"
+
+def suavizar(y, box_pts=10):  "def suavizar ayuda a eliminar el ruido representado en la señal"
+    box = np.ones(box_pts) / box_pts
+    return np.convolve(y, box, mode='same')
+psd_suave = suavizar(psd, box_pts=10)
 ```
-## Resultados 
-Al compilar este código usted deberá obtener : 
-# Señal EMG 
-<p align="center"><img src="https://github.com/1ebarry/Analisis-estadistico-se-al-EMG/blob/main/SE%C3%91AL%20EMG.png?raw=true"/></p>
+# Análisis Estadístico en función de la Frecuencia 
+Se realiza este análisis por que permite caracterizar la distribución espectral de la señal, primero la frecuencia media se calcula ponderando las frecuencias por la magnitud de la Transformada de Fourier, la frecuencia mediana es el valor que divide la distribución de energía en dos partes iguales, la desviación estándar mide la dispersión de las frecuencias alrededor de la media, finalmente el histograma de frecuencias muestra la distribución de la energía en distintos rangos de frecuencia.
 
-<p align="center"><img src=""/></p>
+```pyton
+media_fft = np.mean(magnitudes)         "se aplica los estadisticos con funciones predefinidas a la magnitud previamente obtenida"
+mediana_fft = np.median(magnitudes)
+desviacion_fft = np.std(magnitudes)
 
-# Histograma con función de probabilidad
-<p align="center"><img src="https://github.com/1ebarry/Analisis-estadistico-se-al-EMG/blob/main/HISTOGRAMA%20CON%20FUNCION%20DE%20PROBABILIDAD.png?raw=true"/></p>
+frecuencia_media = np.sum(freqs[:N//2] * magnitudes[:N//2]) / np.sum(magnitudes[:N//2])  "Frecuencia media (ponderada por la magnitud de la FFT)"
 
-# Señal EMG contaminada por ruido Gaussiano, red y pulso
-<p align="center"><img src="https://github.com/1ebarry/Analisis-estadistico-se-al-EMG/blob/main/SE%C3%91AL%20EMG%20CON%20RUIDO%20GAUSSIANO.png?raw=true"/></p>
+acumulada = np.cumsum(magnitudes[:N//2])
+frecuencia_mediana = freqs[:N//2][np.where(acumulada >= acumulada[-1]/2)[0][0]]    "Frecuencia mediana (basada en la suma acumulada de magnitudes)"
 
-<p align="center"><img src="https://github.com/1ebarry/Analisis-estadistico-se-al-EMG/blob/main/SE%C3%91AL%20EMG%20CON%20RUIDO%20DE%20RED%20Y%20PULSO.png?raw=true"/></p>
+desviacion_frecuencia = np.sqrt(np.sum(((freqs[:N//2] - frecuencia_media)**2) * magnitudes[:N//2]) / np.sum(magnitudes[:N//2])) "Desviación estandar"
+```
+Los calculos anteriores son en base a las formulas matemáticas correspondientes a :
 
-# Señal EMG con ruidos (Amplificada)
-<p align="center"><img src="https://github.com/1ebarry/Analisis-estadistico-se-al-EMG/blob/main/SE%C3%91AL%20EMG%20AMPLIFICADA%20Y%20SE%C3%91AL%20RUIDO%20GAUSSIANO%20AMPLIFICADA.png?raw=true"/></p>
+### Frecuencia Media (ponderada por la magnitud de la FFT)
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/Frecuencia%20Media%20(ponderada%20por%20la%20magnitud%20de%20la%20FFT).png?raw=true"></p>
 
-<p align="center"><img src="https://github.com/1ebarry/Analisis-estadistico-se-al-EMG/blob/main/SE%C3%91AL%20RUIDO%20DE%20RED%20Y%20PULSO%20AMPLIFICADAS.png?raw=true"/></p>
+### Frecuencia Mediana (basada en la suma acumulada de magnitudes)
+
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/Frecuencia%20Mediana%20(basada%20en%20la%20suma%20acumulada%20de%20magnitudes).png?raw=true"/></p>
+
+### Desviación Estandar de la Frecuencia
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/Desviaci%C3%B3n%20Est%C3%A1ndar%20de%20la%20Frecuencia.png?raw=true"></p>
+
+
+# Resultados 
+
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/GRAFICA%20INT1.png?raw=true"></p>
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/GRAFICA%20INT2.png?raw=true "></p>
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/GRAFICA%20INT3.png?raw=true "></p>
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/GRAFICA%20CORRELACION.png?raw=true "></p>
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/HISTOGRAMA%20SE%C3%91AL%20ECG.png?raw=true "></p>
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/GRAFICA%20TRANSFORMADA.png?raw=true  "></p>
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/GRAFICA%20DENSIDAD%20ESPECTRAL.png?raw=true "></p>
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/HISTOGRAMA%20FRECUENCIA%20ESPECTRAL.png?raw=true "></p>
+<p align="center"><img src="https://github.com/1ebarry/Convoluci-n-Correlaci-n-y-Transformaci-n/blob/main/RESULTADOSS.png?raw=true "></p>
+
 
 ## Información adicional
-Para finalizar es bueno que tenga presente  optimizar el SNR en las señales biomédicas, teniendo en cuenta que el rango ideal según la literatura para una señal EMG de calidad aceptable debe estar entre 15 dB y 30 dB  para garantizar mediciones precisas y representaciones gráficas fieles de la señal capturada, puesto que un valor elevado de SNR implica que la señal sea más clara en comparación con el ruido y un SNR bajo dificulta la identificación de características relevantes debido a la presencia dominante del ruido
+
+
+Por último y no menos importante vemos que el coeficiente de correlación de Pearson tiene un valor (0.8467185111073606) casi cercano a 1 por lo que nos indica que existe una correlación positiva, podria decirse semi perfecta o casi perfecta.... Por otro lado vemos que nuestra señal cumple satisfactoriamente con el criterio de Nyquist el cual nos dice  que la frecuencia de muestreo  𝑓𝑠(100Hz) es al menos el doble de la máxima frecuencia 𝑓𝑚𝑎𝑥(50Hz) Esto garantiza que la señal puede ser reconstruida sin pérdida de información ni aliasing.
+
+
+
+
 ## Bibliografía
 [1] Goldberger, A., Amaral, L., Glass, L., Hausdorff, J., Ivanov, P. C., Mark, R., ... & Stanley, H. E. (2000). PhysioBank, PhysioToolkit, and PhysioNet: Components of a new research resource for complex physiologic signals. Circulation [Online]. 101 (23), pp. e215–e220.
 ## Licencia 
 DOI (version 1.0.0):
 https://doi.org/10.13026/C24S3D
 
-Temas:
-neuropatía /
-electromiografía
+## Temas:
+# 📡 Procesamiento de Señales  
+- Adquisición y preprocesamiento  
+- Convolución y correlación  
+- Estadísticas básicas  
+
+# 🔊 Análisis en Frecuencia  
+- Transformada de Fourier  
+- Densidad Espectral de Potencia (PSD)  
+
+# 📊 Estadísticos Descriptivos  
+- Frecuencia media y mediana  
+- Desviación estándar  
+- Histograma de frecuencias  
+
+# 🖥️ Código e Implementación  
+- Explicación del código  
+- Ejecución y ejemplos  
+- Mejoras y optimización  
+
 
