@@ -194,10 +194,10 @@ Por último y no menos importante vemos que el coeficiente de correlación de Pe
 
 
 ## Bibliografía
-[1] Goldberger, A., Amaral, L., Glass, L., Hausdorff, J., Ivanov, P. C., Mark, R., ... & Stanley, H. E. (2000). PhysioBank, PhysioToolkit, and PhysioNet: Components of a new research resource for complex physiologic signals. Circulation [Online]. 101 (23), pp. e215–e220.
+[1] PhysioNet Support, MIT. (2013). *Dataset Description*. Recuperado de [PhysioNet](https://www.physionet.org)
+
 ## Licencia 
-DOI (version 1.0.0):
-https://doi.org/10.13026/C24S3D
+Open Data Commons Attribution License v1.0
 
 ## Temas:
 # 📡 Procesamiento de Señales  
